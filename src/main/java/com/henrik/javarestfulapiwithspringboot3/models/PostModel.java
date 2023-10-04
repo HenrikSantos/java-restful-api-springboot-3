@@ -7,7 +7,7 @@ import java.util.List;
 @Entity(name = "Post")
 public class PostModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "post_id")
     private String postId;
     private String title;

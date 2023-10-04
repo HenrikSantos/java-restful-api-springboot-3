@@ -11,7 +11,11 @@ import java.util.List;
 public class PostService {
     @Autowired
     PostRepository postRepository;
-    public List<PostModel> getAll() {
+    public List<PostModel> getAllPosts() {
         return postRepository.findAll();
+    }
+
+    public PostModel createPost(PostModel post) {
+        return postRepository.save(post);
     }
 }
