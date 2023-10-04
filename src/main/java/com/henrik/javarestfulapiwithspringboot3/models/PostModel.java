@@ -7,8 +7,8 @@ import java.util.List;
 @Entity(name = "Post")
 public class PostModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "post_id", unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "post_id")
     private String postId;
     private String title;
     @Column(name = "post_comment")
@@ -20,6 +20,8 @@ public class PostModel {
     private SubredditModel subreddit;
     private Integer score;
     private String img;
+
+    @OneToMany(mappedBy = "post")
     private List<CommentModel> comments;
 
     public String getPostId() {

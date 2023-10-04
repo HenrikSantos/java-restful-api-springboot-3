@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 @Entity(name = "Comment")
 public class CommentModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "comment_id", unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "comment_id")
     private String commentId;
     @Column(name= "comment_author")
     private String commentAuthor;
@@ -14,6 +14,11 @@ public class CommentModel {
     private String commentText;
     @Column(name = "comment_score")
     private Integer commentScore;
+
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private PostModel post;
+
 
     public String getCommentId() {
         return commentId;
@@ -46,5 +51,4 @@ public class CommentModel {
     public void setCommentScore(Integer commentScore) {
         this.commentScore = commentScore;
     }
-
 }

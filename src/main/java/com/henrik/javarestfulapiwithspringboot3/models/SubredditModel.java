@@ -7,12 +7,12 @@ import java.util.List;
 @Entity(name = "Subreddit")
 public class SubredditModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "subreddit_id", unique = true)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "subreddit_id")
     private String subredditId;
     private String name;
     private String image;
-    @OneToMany(mappedBy = "Subreddit", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "subreddit", cascade = CascadeType.ALL)
     private List<PostModel> posts;
 
     public String getSubredditId() {
