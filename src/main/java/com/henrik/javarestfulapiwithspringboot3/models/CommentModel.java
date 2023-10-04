@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity(name = "Comment")
 public class CommentModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "comment_id")
     private String commentId;
     @Column(name= "comment_author")

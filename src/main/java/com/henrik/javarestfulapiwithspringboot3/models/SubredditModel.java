@@ -7,7 +7,7 @@ import java.util.List;
 @Entity(name = "Subreddit")
 public class SubredditModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "subreddit_id")
     private String subredditId;
     private String name;
