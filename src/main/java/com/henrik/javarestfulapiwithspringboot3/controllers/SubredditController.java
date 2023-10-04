@@ -16,9 +16,9 @@ public class SubredditController {
     SubredditService subredditService;
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable String id) {
-        SubredditModel response = subredditService.getById(id);
+        SubredditModel response = subredditService.getSubredditById(id);
         if (response == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("id not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("subreddit not found");
         }
         return ResponseEntity.ok(response);
     }

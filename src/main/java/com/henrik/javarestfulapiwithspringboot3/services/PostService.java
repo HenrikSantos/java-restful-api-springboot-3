@@ -1,6 +1,7 @@
 package com.henrik.javarestfulapiwithspringboot3.services;
 
 import com.henrik.javarestfulapiwithspringboot3.models.PostModel;
+import com.henrik.javarestfulapiwithspringboot3.models.SubredditModel;
 import com.henrik.javarestfulapiwithspringboot3.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,9 @@ public class PostService {
 
     public PostModel createPost(PostModel post) {
         return postRepository.save(post);
+    }
+
+    public PostModel getPostById(String id) {
+        return postRepository.findById(id).orElse(null);
     }
 }

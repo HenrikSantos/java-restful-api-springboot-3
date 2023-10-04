@@ -10,7 +10,7 @@ public class SubredditService {
     @Autowired
     SubredditRepository subredditRepository;
 
-    public SubredditModel getById(String id) {
+    public SubredditModel getSubredditById(String id) {
         return subredditRepository.findById(id).orElse(null);
     }
 
