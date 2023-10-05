@@ -16,7 +16,7 @@ public class CommentModel {
     @Column(name = "comment_text")
     private String commentText;
 
-    @Column(name = "comment_score", columnDefinition = "default 0")
+    @Column(name = "comment_score")
     private Integer commentScore;
 
     @ManyToOne

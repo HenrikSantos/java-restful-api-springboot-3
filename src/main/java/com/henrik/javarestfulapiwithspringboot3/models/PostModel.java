@@ -24,7 +24,6 @@ public class PostModel {
     @JoinColumn(name = "subreddit_id")
     private SubredditModel subreddit;
 
-    @Column(columnDefinition = "default 0")
     private Integer score;
 
     private String img;
