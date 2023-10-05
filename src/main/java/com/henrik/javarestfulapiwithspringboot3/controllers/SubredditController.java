@@ -1,5 +1,6 @@
 package com.henrik.javarestfulapiwithspringboot3.controllers;
 
+import com.henrik.javarestfulapiwithspringboot3.models.PostModel;
 import com.henrik.javarestfulapiwithspringboot3.models.SubredditModel;
 import com.henrik.javarestfulapiwithspringboot3.services.SubredditService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -8,12 +9,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/subreddit")
 @Tag(name = "Subreddit API", description = "Endpoint for managing subreddits.")
 public class SubredditController {
     @Autowired
     SubredditService subredditService;
+
+    @GetMapping("")
+    public ResponseEntity<List<SubredditModel>> getPosts() {
+        return ResponseEntity.ok(subredditService.getAllSubreddits());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable String id) {
         SubredditModel response = subredditService.getSubredditById(id);

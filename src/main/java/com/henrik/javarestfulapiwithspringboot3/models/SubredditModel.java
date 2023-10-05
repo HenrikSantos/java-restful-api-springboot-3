@@ -3,7 +3,6 @@ package com.henrik.javarestfulapiwithspringboot3.models;
 import jakarta.persistence.*;
 
 import java.util.List;
-
 @Entity(name = "Subreddit")
 public class SubredditModel {
     @Id
@@ -12,7 +11,8 @@ public class SubredditModel {
     private String subredditId;
     private String name;
     private String image;
-    @OneToMany(mappedBy = "subreddit", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "subreddit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<PostModel> posts;
 
     public String getSubredditId() {
@@ -37,5 +37,13 @@ public class SubredditModel {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public List<PostModel> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<PostModel> posts) {
+        this.posts = posts;
     }
 }

@@ -10,18 +10,24 @@ public class PostModel {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "post_id")
     private String postId;
+
     private String title;
+
     @Column(name = "post_comment")
     private String postComment;
+
     @Column(unique = true)
     private String author;
+
     @ManyToOne
     @JoinColumn(name = "subreddit_id")
     private SubredditModel subreddit;
+
     private Integer score;
+
     private String img;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CommentModel> comments;
 
     public String getPostId() {
@@ -87,5 +93,4 @@ public class PostModel {
     public void setComments(List<CommentModel> comments) {
         this.comments = comments;
     }
-
 }

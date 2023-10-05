@@ -19,7 +19,6 @@ public class CommentModel {
     @JoinColumn(name = "post_id")
     private PostModel post;
 
-
     public String getCommentId() {
         return commentId;
     }
@@ -50,5 +49,13 @@ public class CommentModel {
 
     public void setCommentScore(Integer commentScore) {
         this.commentScore = commentScore;
+    }
+
+    public PostModel getPost() {
+        return post;
+    }
+
+    public void setPost(PostModel post) {
+        this.post = post;
     }
 }
