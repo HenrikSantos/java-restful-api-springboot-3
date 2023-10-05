@@ -2,6 +2,7 @@ package com.henrik.javarestfulapiwithspringboot3.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Post")
@@ -23,12 +24,13 @@ public class PostModel {
     @JoinColumn(name = "subreddit_id")
     private SubredditModel subreddit;
 
+    @Column(columnDefinition = "default 0")
     private Integer score;
 
     private String img;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<CommentModel> comments;
+    private List<CommentModel> comments = new ArrayList<>();
 
     public String getPostId() {
         return postId;

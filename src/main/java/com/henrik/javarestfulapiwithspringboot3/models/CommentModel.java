@@ -4,15 +4,19 @@ import jakarta.persistence.*;
 
 @Entity(name = "Comment")
 public class CommentModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "comment_id")
     private String commentId;
+
     @Column(name= "comment_author")
     private String commentAuthor;
+
     @Column(name = "comment_text")
     private String commentText;
-    @Column(name = "comment_score")
+
+    @Column(name = "comment_score", columnDefinition = "default 0")
     private Integer commentScore;
 
     @ManyToOne

@@ -3,6 +3,7 @@ package com.henrik.javarestfulapiwithspringboot3.models;
 import jakarta.persistence.*;
 
 import java.util.List;
+
 @Entity(name = "Subreddit")
 public class SubredditModel {
     @Id
