@@ -1,5 +1,6 @@
 package com.henrik.javarestfulapiwithspringboot3.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ public class SubredditModel {
     private String image;
 
     @OneToMany(mappedBy = "subreddit", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<PostModel> posts;
 
     public String getSubredditId() {

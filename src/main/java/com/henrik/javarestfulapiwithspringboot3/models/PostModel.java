@@ -1,5 +1,6 @@
 package com.henrik.javarestfulapiwithspringboot3.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class PostModel {
     private String img;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<CommentModel> comments = new ArrayList<>();
 
     public String getPostId() {
